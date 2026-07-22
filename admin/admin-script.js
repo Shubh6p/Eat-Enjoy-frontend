@@ -10,6 +10,11 @@ const authFetch = async (url, options = {}) => {
     ...options.headers,
     'Authorization': 'Bearer ' + token
   };
+  
+  if (url.startsWith('/api/')) {
+    url = API_BASE_URL + url;
+  }
+  
   const res = await fetch(url, options);
   if (res.status === 401 || res.status === 403) {
     window.location.href = 'login.html';

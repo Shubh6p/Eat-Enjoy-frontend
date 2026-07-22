@@ -115,7 +115,7 @@ async function placeOrder() {
   };
 
   try {
-    const res = await fetch("/api/orders", {
+    const res = await fetch(API_BASE_URL + '/api/orders', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order)
@@ -165,7 +165,7 @@ window.placeOrder = placeOrder;
 
 async function loadCategories() {
   try {
-    const res = await fetch('/api/categories');
+    const res = await fetch(API_BASE_URL + '/api/categories');
     const categories = await res.json();
     const container = document.getElementById('scrollContainer');
     container.innerHTML = '';
@@ -192,7 +192,7 @@ loadCategories();
 
 
   // 
- fetch('/api/featured-categories')
+ fetch(API_BASE_URL + '/api/featured-categories')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('featuredCategories');
@@ -214,7 +214,7 @@ loadCategories();
 
 // 
 
-fetch('/api/popular-restaurants')
+fetch(API_BASE_URL + '/api/popular-restaurants')
   .then(res => res.json())
   .then(data => {
     const container = document.querySelector('.popular-restaurants');
@@ -251,7 +251,7 @@ fetch('/api/popular-restaurants')
 
 // 
 
-fetch('/api/hot-deals')
+fetch(API_BASE_URL + '/api/hot-deals')
   .then(res => res.json())
   .then(data => {
     const container = document.querySelector('.hot-deals-section');
@@ -278,7 +278,7 @@ fetch('/api/hot-deals')
 
   // Team Members
 
-  fetch('/api/team-members')
+  fetch(API_BASE_URL + '/api/team-members')
   .then(res => res.json())
   .then(data => {
     const container = document.querySelector('.team-members');
@@ -303,7 +303,7 @@ fetch('/api/hot-deals')
 
   // Blogspot
 
-  fetch('/api/blog-posts')
+  fetch(API_BASE_URL + '/api/blog-posts')
   .then(res => res.json())
   .then(posts => {
     const container = document.querySelector('.blog-posts');
@@ -351,7 +351,7 @@ const keywordInput = document.getElementById('keyword');
     }
 
     try {
-      const res = await fetch('/api/categories');
+      const res = await fetch(API_BASE_URL + '/api/categories');
       const categories = await res.json();
 
       const filtered = categories.filter(cat =>
@@ -410,7 +410,7 @@ suggestionsList.classList.remove('hidden');
 
 async function loadGridCategories() {
   try {
-    const res = await fetch('/api/categories');
+    const res = await fetch(API_BASE_URL + '/api/categories');
     const categories = await res.json();
     const grid = document.getElementById('categoryGrid');
     grid.innerHTML = '';
@@ -446,7 +446,7 @@ document.getElementById('showCategoriesBtn').addEventListener('click', () => {
 
 //  Todays Special
 
-// fetch("/api/specials")
+// fetch(API_BASE_URL + '/api/specials')
 //   .then(res => res.json())
 //   .then(data => {
 //     const container = document.getElementById("foodItemsContainer");
