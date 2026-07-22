@@ -197,7 +197,7 @@ loadCategories();
   .then(data => {
     const container = document.getElementById('featuredCategories');
     container.innerHTML = '';
-    data.forEach(item => {
+    if (Array.isArray(data)) data.forEach(item => {
       container.innerHTML += `
         <a href="category.html?category=${item.slug}" class="block hover:shadow-lg transition duration-200">
           <div class="flex flex-col items-center text-center space-y-2 bg-white shadow rounded-lg p-4">
@@ -220,7 +220,7 @@ fetch(API_BASE_URL + '/api/popular-restaurants')
     const container = document.querySelector('.popular-restaurants');
     container.innerHTML = '';
 
-    data.forEach(item => {
+    if (Array.isArray(data)) data.forEach(item => {
       container.innerHTML += `
         <article class="bg-white w-72 rounded-xl shadow-md hover:shadow-yellow-300 transition overflow-hidden relative group cursor-pointer">
         <a href="category.html?category=${item.slug}" class="block hover:shadow-lg transition duration-200">  
@@ -257,7 +257,7 @@ fetch(API_BASE_URL + '/api/hot-deals')
     const container = document.querySelector('.hot-deals-section');
     container.innerHTML = '';
 
-    data.forEach(item => {
+    if (Array.isArray(data)) data.forEach(item => {
       container.innerHTML += `
         <article class="bg-white w-64 rounded-xl shadow-md hover:shadow-yellow-400 transition overflow-hidden cursor-pointer">
           <img src="${item.image}" alt="${item.name}"
@@ -284,7 +284,7 @@ fetch(API_BASE_URL + '/api/hot-deals')
     const container = document.querySelector('.team-members');
     container.innerHTML = '';
 
-    data.forEach(member => {
+    if (Array.isArray(data)) data.forEach(member => {
       container.innerHTML += `
         <article class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
           <div class="overflow-hidden">
@@ -451,7 +451,7 @@ document.getElementById('showCategoriesBtn').addEventListener('click', () => {
 //   .then(data => {
 //     const container = document.getElementById("foodItemsContainer");
 //     container.innerHTML = "";
-//     data.forEach(item => {
+//     if (Array.isArray(data)) data.forEach(item => {
 //       const card = document.createElement("div");
 //       card.className = "bg-white shadow-md rounded-xl p-4 flex items-center justify-between hover:shadow-lg transition";
 
